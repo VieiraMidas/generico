@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CardProjeto from "./Componentes/CardProjeto";
 
 class App extends Component{
 
@@ -9,6 +9,13 @@ class App extends Component{
     this.state = {
       lista: []
     };
+  }
+  componentDidMount() {
+    fetch("http://localhost:8080/api/projetos")
+    .then(res => res.json())
+      .then((result) => {
+        this.setState({ lista: result.data })
+      });
   }
 
 
@@ -26,22 +33,24 @@ render() {
       </div>
     </div>
         
-    <div class="ui card">
-      <div class="image"><img src="/images/avatar/large/matthew.png" /></div>
-        <div class="content">
-          <div class="header">Matthew</div>
-          <div class="meta"><span class="date">Joined in 2015</span></div>
-          <div class="description">Matthew is a musician living in Nashville.</div>
+    <div className="ui stackable three column grid" id="grid-projetos">
+          {
+            this.state.lista.map(function (projeto) {
+              return (
+                <CardProjeto
+                  key={projeto.id} 
+                  nome={projeto.nome} 
+                  usuario={projeto.usuario} 
+                  descricao={projeto.descricao} 
+                  likes={projeto.likes} 
+                  id={projeto.id}
+                />)
+            })
+          }
         </div>
-        <div class="extra content">
-        <a>
-        <i aria-hidden="true" class="user icon"></i>
-      22 Friends
-        </a>
-      </div>
-    </div>
-    </>
-  );
+      </>
+    );
+  }
 }
-}
+
 export default App;
