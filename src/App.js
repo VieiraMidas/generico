@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardProjeto from "./Componentes/CardProjeto";
+import ModalNovoProjeto from "./Componentes/ModalNovoProjeto";
 
 class App extends Component{
 
@@ -25,7 +26,7 @@ render() {
     <div className="ui inverted fixed huge menu">
       <div className="ui container">
         <a href="index.html" className="item">Generico</a>
-        <button className="ui primary button">criar projeto</button>
+        <ModalNovoProjeto />
         <div className="ui icon input right menu">
           <input type="text" placeholder="procurar projeto..." />
           <i aria-hidden="true" className="search icon"></i>

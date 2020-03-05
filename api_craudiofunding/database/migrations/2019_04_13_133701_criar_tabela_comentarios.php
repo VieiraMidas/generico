@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaAlternativas extends Migration
+class CriarTabelaComentarios extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CriarTabelaAlternativas extends Migration
      */
     public function up()
     {
-        Schema::create('alternativas', function (Blueprint $table) {
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->tinyIncrements('id');
-            $table->integer('texto');
-            $table->boolean('correta')->default(false);
-            $table->integer('questao_id');
+            $table->integer('comentario');
+            $table->integer('projeto_id');
 
-            $table->foreign('questao_id')
-                ->references('questao')
+            $table->foreign('projeto_id')
+                ->references('projetos')
                 ->on('id');
         });
     }
@@ -32,6 +31,6 @@ class CriarTabelaAlternativas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alternativas');
+        Schema::dropIfExists('comentarios');
     }
 }

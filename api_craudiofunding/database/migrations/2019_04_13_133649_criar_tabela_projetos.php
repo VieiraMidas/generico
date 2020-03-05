@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaQuestoes extends Migration
+class CriarTabelaProjetos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CriarTabelaQuestoes extends Migration
      */
     public function up()
     {
-        Schema::create('questoes', function (Blueprint $table) {
+        Schema::create('projetos', function (Blueprint $table) {
             $table->tinyIncrements('id');
-            $table->string('enunciado')->unique();
-            $table->string('tipo');
+            $table->string('nome')->unique();
+            $table->string('descricao');
+            $table->integer('likes')->default(0);
+            $table->string('usuario');
         });
     }
 
@@ -27,6 +29,6 @@ class CriarTabelaQuestoes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questoes');
+        Schema::dropIfExists('projetos');
     }
 }
