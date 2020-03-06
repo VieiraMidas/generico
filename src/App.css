@@ -2,13 +2,22 @@
   text-align: center;
 }
 
+body{
+  background-color: #4f4f4f;
+}
+
+#grid-projetos{
+  padding: 50px;
+}
+
 .botao-like{
   cursor: pointer;
 }
 
-body{
-  background-color: blueviolet;
+.column{
+  margin-top: 50px;
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
