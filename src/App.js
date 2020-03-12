@@ -8,8 +8,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = { lista: [
-      {nome: "Projeto Generico",
-      usuario: "Midas",
+      {nome: "Projeto 1",
+      usuario: "Mideu",
       likes: 0
     }
     ] };
@@ -26,8 +26,7 @@ class App extends Component {
         this.setState({ lista: result.data })
       });
   }
-  
-  
+
   render() {
     return (
       <>
@@ -36,7 +35,7 @@ class App extends Component {
             <a href="index.html" className="item">Generico</a>
             <ModalNovoProjeto adicionarProjeto={this.adicionarProjeto.bind(this)} />
             <div className="ui icon input right menu">
-              <input type="text" placeholder="procurar projeto..." />
+              <input type="text" placeholder="Procurar Projeto..." />
               <i aria-hidden="true" className="search icon"></i>
             </div>
           </div>

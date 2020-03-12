@@ -39,7 +39,7 @@ class ModalNovoProjeto extends Component {
                                 <label>Nome do Projeto</label>
                                 <input
                                     name="nome"
-                                    placeholder="Nome do Projeto"
+                                    placeholder="nome do projeto"
                                     value={this.state.nome}
                                     onChange={this.handleChange}
                                 />
@@ -48,7 +48,7 @@ class ModalNovoProjeto extends Component {
                                 <label>Autor</label>
                                 <input 
                                     name="usuario" 
-                                    placeholder="Nome do Autor do Projeto" 
+                                    placeholder="nome do autor do projeto" 
                                     value={this.state.usuario}
                                     onChange={this.handleChange}
                                     />
